@@ -1,0 +1,49 @@
+extends ../../struct/layout
+
+block content
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+        .container
+            h2.breadcrumbs-custom-title Nous Rejoindre
+        ul.breadcrumbs-custom-path
+            li
+                a(href='/') Acceuil
+            li
+                a(href='/nous-rejoindre') Nous Rejoindre
+            li.active Etape 3 / 3
+    section.section.section-lg.bg-default
+        .container
+            section.section.section-lg.bg-default
+                .container
+                    .row
+                        .col-lg-7.col-md-8.col-sm-10
+                            h3 Ta Candidature (applique toi 😄)
+                            p.text-gray-600 Indiquer les information si dessous
+                    // RD Mailform
+                    form.rd-form.rd-mailform.text-left(novalidate='novalidate')
+                        .row.row-40
+                            .col-lg-6
+                                #form-minecraft.form-wrap
+                                    label.form-label.rd-input-label(for='candidature-minecraft') Minecraft
+                                    input#candidature-minecraft.form-input.form-control-has-validation.form-control-last-child(type='text', name='name')
+                                    span#span-minecraft.form-validation
+                            .col-lg-6
+                                #form-discord.form-wrap
+                                    label.form-label.rd-input-label(for='candidature-discord') ID Discord
+                                    input#candidature-discord.form-input.form-control-has-validation.form-control-last-child(type='text', name='name')
+                                    span#span-discord.form-validation
+                                p Pour savoirs comment trouver votre identifiant discord 
+                                    a(href='#') cliquer ici
+                            .col-lg-12
+                                #form-message.form-wrap
+                                    label.form-label.rd-input-label(for='candidature-message') Candidature
+                                    textarea#candidature-message.form-input.form-control-has-validation.form-control-last-child(style='height: 500px;max-height: none', name='message')
+                                    span#span-message.form-validation
+                            .col-lg-12
+                                #form-checkbox.form-wrap
+                                    label.checkbox-inline(for='candidature-checkbox') Je consent a ce que les données de ma candidature soit utiliser sur le site de litopia (Non obligatoire)
+                                        input#candidature-checkbox.checkbox-custom(type='checkbox', name='checkinfo' value="candidatureEnabled")
+                                        span#span-checkbox.form-validation(style='left: 0;')
+                            .col-lg-12
+                                .form-wrap
+                                    button#sendForm.button.button-primary(type='submit') Envoyer
+

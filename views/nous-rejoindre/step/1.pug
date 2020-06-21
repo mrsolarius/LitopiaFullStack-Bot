@@ -1,0 +1,61 @@
+extends ../../struct/layout
+
+block content
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+        .container
+            h2.breadcrumbs-custom-title Nous Rejoindre
+        ul.breadcrumbs-custom-path
+            li
+                a(href='index.html') Acceuil
+            li.active
+                a(href='nous-Rejoindre.html') Nous Rejoindre
+            li.active Etape 1 / 3
+    section.section.section-lg.bg-default
+        .container
+            article.quote-primary.mb-5
+                .quote-primary-body
+                    svg.quote-primary-mark(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', viewBox='0 0 512 512', style='enable-background:new 0 0 512 512;', xml:space='preserve')
+                        path(d='M256,0C115.2,0,0,115.2,0,256s115.2,256,256,256s256-115.2,256-256S396.8,0,256,0z M256,51.2\
+                        c28.16,0,48.64,23.04,46.08,51.2L281.6,307.2h-51.2l-20.48-204.8C207.36,74.24,227.84,51.2,256,51.2z M256,460.8\
+                        c-28.16,0-51.2-23.04-51.2-51.2c0-28.16,23.04-51.2,51.2-51.2s51.2,23.04,51.2,51.2C307.2,437.76,284.16,460.8,256,460.8z')
+                    .quote-primary-text(style='margin-left: 15px;')
+                        p.q
+                            span.text-bold
+                                | Pour nous rejoindre, il est 
+                                mark impératif
+                            |  de faire une candidature écrite et soignée, 
+                            span.text-bold
+                                | puis de passer un 
+                                mark entretien vocal
+                            |  avec l'un des administrateurs du serveur sur notre Discord. 
+                            span.text-bold
+                                | Si vous ne possédez 
+                                mark pas de micro
+                                |  pour le faire, il est préférable pour vous que vous 
+                                mark passiez votre chemin
+                                | .
+            .row.row-50.flex-md.mb-5.mt-5
+                .col-md-6
+                    article.text-center
+                        h4.box-about-post-title-center Qui peut nous rejoindre ?
+                        p.text-decoration-lines
+                            | Absolument tout le monde ! Le système de whitelist n'est pas fait pour sélectionner des joueurs selon leur âge ou leur niveau de jeu. Il nous permet seulement de mieux réguler l'arrivée de nouveaux membres et de contrôler la motivation des arrivants. Nous n'acceptons pas, en revanche, les versions crackées de Minecraft.
+                .col-md-6
+                    .text-center
+                        h4.box-about-post-title-center Les conditions d'adhésion
+                        p.text-decoration-lines
+                            | Par le biais de votre candidature, vous devez donner à la communauté de Litopia une bonne raison d'être accepté. Il vous faudra donc nous prouver votre motivation. Nous utilisons aussi les candidatures comme "filtre anti-perturbateurs", alors soignez votre présentation 😉.
+            article.text-center.mt-5.mb-5
+                h4.box-about-post-title-center Comment sa fonctionne ?
+                p
+                    | Chaque semaine, toutes les candidatures posté sur notre site sont affichés dans le channel des candidatures, durant laquelle, les litopiens vote pour la, ou les candidatures qu'ils preferes. A la fin de celle-ci, la personne ayant reçu le plus de vote passera un entretien oral avec nos modérateurs.
+                    | Une seul personne rejoindra Litopia chaque semaine.
+            .text-center.mt-5
+                p
+                    span.text-italic
+                        | Chaque postulant a le droit de poster deux candidature avant d'être définitivement rejeter.
+                .button-wrap(data-caption-animate='fadeInUp', data-caption-delay='300')
+                    a.button.button-modern.button-custom-size-1(href='/nous-rejoindre/2') Suivant
+        div(style='height: 25px; margin-top: 20px')
+        .text-center
+    section

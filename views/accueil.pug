@@ -1,0 +1,129 @@
+extends ./struct/layout
+
+block content
+  include ./struct/carousel
+  section.section.section-lg.bg-default
+    .container
+      .row.row-50.flex-md-row-reverse
+        .col-md-6.text-center
+          .box-image-1
+            img(src='images/bio-01-468x553.jpg', alt='', width='468', height='276')
+        .col-md-6
+          .box-about
+            .box-about-title-wrap
+              h2.box-about-mega-title Litopia
+              h2.box-about-title A propos
+            h4.box-about-post-title Comment toute à comancée
+            p
+              | Litopia et une comunautée qui dure dans le temps, en effet le premier serveur à était crée en 2016.
+              | Mais comment sa se fait que sa fonctionne.
+            p
+              | Litopia est un serveur Minecraft Vanilla en UltraHardCore, actuellement en version 1.15.2 Le PvP est
+              | actif et la map illimitée en freebuild. Nous sommes avant tout une communauté soudée, une bande de
+              | copains qui se retrouvent pour partager ensemble une aventure sur Minecraft.
+            a.button.button-primary(href='#') Nous Rejoindre
+            p
+              | Pour intégrer notre serveur, il te faudra avant tout lire et accepter le certaines règles. En cas de
+              | non respect de celles-ci, les joueurs concernés seront sanctionnés sur-le-champ.
+  section.section.section-lg-3.bg-default
+    // Owl Carousel
+    .owl-carousel.owl-carousel-bio(data-items='1', data-sm-items='1', data-md-items='2', data-lg-items='2', data-xl-items='3', data-xxl-items='4', data-autoplay='false', data-nav='true', data-dots='true', data-loop='true', data-mouse-drag='false', data-stage-padding='0', data-margin='0', data-nav-text='["prev","next"]')
+      .box-bio
+        .box-bio-year 2015
+        .box-bio-body
+          h5.box-bio-title Kraftopia
+          p.box-bio-text Kraftopia et le premier server. Repris par les plus aincien membre de litopia.
+      .box-bio
+        .box-bio-year Janvier 2017
+        .box-bio-body
+          h5.box-bio-title Litopia
+          p.box-bio-text
+            | Aprés une longue pause Loff demande à solarius d'ouvrire un nouveau server server qui sera nomée litopia. Cette premiere saison seras dans un monde amplified
+      .box-bio
+        .box-bio-year Aout 2017
+        .box-bio-body
+          h5.box-bio-title Début de la saison 2
+          p.box-bio-text
+            | Préparation de la saison 2 et utilisation d'un générateur de monde vanilla spétial OTG & Mise en place de superbe plugin par Sekori !
+      .box-bio
+        .box-bio-year Juillet 2018
+        .box-bio-body
+          h5.box-bio-title Début de la saison 3
+          p.box-bio-text
+            | Sa y est on lance la saison 3 1 ans aprés la saison 2. Au programe nouveau discord nouveau site nouveau logo. Pour une saison Pirate !
+      .box-bio
+        .box-bio-year Décembre 2019
+        .box-bio-body
+          h5.box-bio-title Une saison de noël
+          p.box-bio-text
+            | Et oui on sais dit que la saison 4 serais une saison de noël ! Noël tous les jour c'est trop bien !
+      .box-bio
+        .box-bio-year Mars 2020
+        .box-bio-body
+          h5.box-bio-title Une saison Corona Virus
+          p.box-bio-text En faites on était tous confiner alors on a fait une saison de Litopia
+  section.section.section-lg.bg-default.text-center
+    .container
+      h6.text-gray-600 Toute les vidéo de litopia
+      h2 Vidéo de Présentation
+      // Bootstrap tabs
+      #tabs-2.tabs-custom.tabs-vertical.tabs-video
+        // Tab panes
+        .tab-content
+          #tabs-2-1.tab-pane.fade.show.active
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/2YYyNzTbdr8', allowfullscreen='')
+          #tabs-2-2.tab-pane.fade
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/fwwHdV7nJSM', allowfullscreen='')
+          #tabs-2-5.tab-pane.fade
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/GLLqFy-EG28', allowfullscreen='')
+          #tabs-2-6.tab-pane.fade
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/sQspQ93-ob4', allowfullscreen='')
+          #tabs-2-7.tab-pane.fade
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/FT8wFGrfoZg', allowfullscreen='')
+          #tabs-2-8.tab-pane.fade
+            .entry-video.embed-responsive.embed-responsive-16by9
+              iframe(width='886', height='668', src='//www.youtube.com/embed/R7IeIWQaLwc', allowfullscreen='')
+        .scroll-wrap
+          // Nav tabs
+          ul.nav.nav-tabs
+            li.nav-item(role='presentation')
+              a.nav-link.active(href='#tabs-2-1', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-01-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Trailer de Litopia 2018
+            li.nav-item(role='presentation')
+              a.nav-link(href='#tabs-2-2', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-02-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Trailer de Kraftopia 2016
+            li.nav-item(role='presentation')
+              a.nav-link(href='#tabs-2-5', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-03-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Shematicas Explication LitopiaCréaS2 2017
+            li.nav-item(role='presentation')
+              a.nav-link(href='#tabs-2-6', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-03-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Destruction de montage Litopia S1 2017
+            li.nav-item(role='presentation')
+              a.nav-link(href='#tabs-2-7', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-04-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Shader Bizard Litopia S1 2017
+            li.nav-item(role='presentation')
+              a.nav-link(href='#tabs-2-8', data-toggle='tab')
+                .nav-video
+                  figure.nav-video-figure
+                    img(src='images/video-05-140x81.jpg', alt='', width='140', height='40')
+                  h6.nav-video-title Course d'Elytra Kraftopia 2016

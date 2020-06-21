@@ -1,0 +1,7 @@
+{
+    "user": "postgres",
+    "host": "localhost",
+    "database": "Litopia",
+    "password": "postgres",
+    "port": 5433
+}

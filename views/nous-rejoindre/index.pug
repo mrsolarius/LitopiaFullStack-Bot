@@ -1,0 +1,49 @@
+extends ../struct/layout
+
+block content
+  .container
+  section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+    h2.breadcrumbs-custom-title Nous Rejoindre
+    ul.breadcrumbs-custom-path
+      li
+        a(href='/') Acceuil
+      li.active Nous Rejoindre
+  section.section.section-lg.bg-default
+    .container
+      .row.row-50.flex-md-row-reverse
+        .col-md-6.text-center
+          .box-image-1
+            img(src='images/bio-01-468x553.jpg', alt='', width='468', height='276')
+        .col-md-6
+          .box-about
+            .box-about-title-wrap
+              h2.box-about-mega-title Litopia
+              h2.box-about-title Comment nous rejoindre ?
+            h4.box-about-post-title Introduction
+            p
+              | Si tu es ici, c'est que Litopia t'intéresse. Notre serveur est ouvert sous forme de candidature
+              strong
+                em (whitelist)
+              | . Nous restreignons l'arrivée de nouveaux joueurs dans le but de permettre à la communauté
+              |de
+              |bien intégrer chacun des arrivants, histoire d'avoir une vraie communauté soudée pour accueillir
+              |d'autres
+              |personnes. D'un autre côté, cela nous permet aussi d'éviter les joueurs "troll" et ceux qui ne sont
+              |pas
+              |réellement motivés.
+              |En attentdant rejoins nous sur notre discord ;)
+            a.button.button-primary(href='https://discord.gg/Q7CQvE2') Rejoindre notre discord
+            h4.box-about-post-title Règlement interne de Litopia
+            p
+              | Pour intégrer notre serveur, il te faudra avant tout lire et accepter le 
+              strong certaines règles
+              | . En cas de non respect de celles-ci, les joueurs concernés seront sanctionnés sur-le-champ.
+            a.button.button-primary(href='/nous-rejoindre/reglement') Réglement
+      div(style='height: 25px')
+      .text-center
+        h4.box-about-post-title-center Candidatures
+        p.text-decoration-lines
+          | Vous vous sentez prêt pour nous rejoindre ? Vous avez hâte de commencer votre aventure ? Alors c'est parti !
+        .button-wrap(data-caption-animate='fadeInUp', data-caption-delay='300')
+          a.button.button-modern.button-custom-size-1(href='/nous-rejoindre/1') Passez au candidatures
+  section
