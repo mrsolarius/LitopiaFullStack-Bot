@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const Token = require('./token.json')
 const has= (a,b)=> {
     for(let c in a) {
         if(b.includes(a[c])) return c;
@@ -11,7 +12,7 @@ global.bot.client = new Discord.Client();
 
 
 
-global.bot.client.login('token');
+global.bot.client.login(Token.token);
 
 global.bot.client.on('ready', () => {
     console.log(`Logged in as ${global.bot.client.user.tag}!`);
