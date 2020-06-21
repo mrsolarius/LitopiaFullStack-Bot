@@ -11,7 +11,7 @@ global.bot.client = new Discord.Client();
 
 
 
-global.bot.client.login('MjgwMzU2MzkyOTI4MjgwNTc3.XuXwbQ.oG4vEyChD3etHCVx-Eq3I5ba7_M');
+global.bot.client.login('token');
 
 global.bot.client.on('ready', () => {
     console.log(`Logged in as ${global.bot.client.user.tag}!`);
