@@ -58,14 +58,12 @@ class CandidatureController{
             error:{},
             sucess:true
         };
-        
-        console.log(typeof data.checker);
 
         if(this.req.body.discord.length ==18){
             try {
                 await global.bot.client.users.fetch(this.req.body.discord)
             } catch (error) {
-                console.log(error);
+                console.error(error);
                 if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
                 this.errReturn.error.discord.push('Veuillez d\'abors vous connecter à notre discord en <a href="https://discord.gg/Q7CQvE2">cliquand ici</a>');
                 this.errReturn.sucess = false;
@@ -157,10 +155,7 @@ class CandidatureController{
     }
 
     async send(){
-        console.log('là')
         await this.localCheck(this.req.body);
-        
-
         if(this.errReturn.sucess){
             
             var member = {};
@@ -188,7 +183,8 @@ class CandidatureController{
             }
             this.composeDiscordMessage(member);
             var data = await db.query('Insert into MEMBERS values($1,$2,$3,$4,$5,$6)',[member.discordID,member.minecraftUUID,member.discord,member.minecraft,member.candidature,member.date]);
-            //console.log(split(this.req.body.candidature,2000));
+            this.res.setHeader('Content-Type', 'application/json');
+            this.res.send(this.errReturn);
         }else{
             this.res.setHeader('Content-Type', 'application/json');
             this.res.send(this.errReturn);

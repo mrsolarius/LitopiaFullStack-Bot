@@ -8,6 +8,13 @@ function restForm() {
     $('#span-checkbox').html('');
 }
 
+function clearFom() {
+    $('#candidature-message').val("");
+    $('#candidature-discord').val("");
+    $('#candidature-minecraft').val("");
+    $('#candidature-checkbox').val("");
+}
+
 function displayError(json) {
     if (typeof json.error.minecraft != 'undefined'){
         $('#form-minecraft').addClass('has-error');
@@ -60,27 +67,58 @@ function sender(){
         
     },
     function(json,status){
-        restForm();
-        displayError(json);
+        console.log(status);
+        if (json.sucess){
+            restForm();
+            clearFom();
+            $('#form-output-global').html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>Votre Candidature à était envoyer RDV sur notre discord 😉</span></p>');
+            $('#form-output-global').addClass('active success');
+        }else{
+            restForm();
+            displayError(json);
+            $('#form-output-global').html('<p><span class="icon text-middle mdi mdi-alert-outline icon-xxs"></span><span>Votre Candidature et incomplete ou comporte des erreur veuillez la verifier avant de la renvoyer</span></p>');
+            $('#form-output-global').addClass('active error');
+        }
+        setTimeout(function () {
+            $('#form-output-global').removeClass("active error success");
+        }, 15000);
     });
 }
 
-$('#candidature-message').focus(function(){
+$('#candidature-message').bind('input propertychange', function() {
+    if($('#candidature-message').val().length>=256){
+        $('#form-message').removeClass('has-error');
+        $('#span-message').html('');
+    }else {
+        $('#form-message').removeClass('has-error');
+        $('#span-message').html('');
+        $('#form-message').addClass('has-error');
+        $('#span-message').html($('#span-message').html()+'Votre candidature doit faire plus de 4 stacks de caracthère');
+    }
+});
+
+$('#candidature-message').focusout(function(){
     checker();
 });
-$('#candidature-discord').focus(function(){
+
+$('#candidature-minecraft').focusout(function(){
     checker();
 });
-$('#candidature-minecraft').focus(function(){
+
+$('#candidature-discord').focusout(function(){
     checker();
 });
+$('#candidature-minecraft').bind('input propertychange',function(){
+    checker();
+});
+
+$('#candidature-checkbox').focus(function () {
+    checker();
+})
 
 
 $('#sendForm').click(function () {
     sender();
-    $('#form-output-global').html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>Votre Candidature à était envoyer</span></p>');
-    $('#form-output-global').addClass('active');
-
     $('#form-output-global').html('<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Traitement en cours</span></p>');
     $('#form-output-global').addClass("active");
     return false;

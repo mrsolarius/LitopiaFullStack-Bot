@@ -32,17 +32,14 @@ global.bot.client.on('message', (message)=> {
         if(isBad) {
             message.delete();
             message.channel.send(
-`«*${cap(badWords[isBad])}*» est un **gros mot**
-**Et c'est mal m'voyer**`);
+                                `«*${cap(badWords[isBad])}*» est un **gros mot**
+                                **Et c'est mal m'voyer**`);
         }
     }
 });
 
 global.bot.client.on('messageReactionAdd', (reaction, user) => {
-    console.log('c bon');
-    console.log(reaction);
-    console.log(user);
-  });
+});
 
 /*
 global.bot.client.on('raw', async packet => {

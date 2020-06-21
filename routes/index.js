@@ -28,7 +28,6 @@ router.post('/api/check/candidature', function(req,res,next){
 });
 
 router.post('/api/send/candidature', function(req,res,next){
-  console.log('ici1');
   let candidControl = new CandidatureController(req,res);
   candidControl.send();
 });
