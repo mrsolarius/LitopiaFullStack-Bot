@@ -1,0 +1,66 @@
+extends ../struct/layout
+
+block content
+    .container
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+        h2.breadcrumbs-custom-title Nos Membres
+        ul.breadcrumbs-custom-path
+            li
+                a(href='/') Acceuil
+            li.active Membres
+    section.section.section-lg.bg-default
+        .container
+            .box-about-title-wrap
+                h2.box-about-mega-title Nos Membres
+                h2.box-about-title Nos Membres
+        .container
+            h4.box-about-post-title.mb-0 Staff
+            p.mb-5 Les membres du staf participe à la vie de litopia en organisant des evenement, acceuilant les nouveau membre, et veille au bon respect des règles.
+        .owl-carousel.owl-carousel-bio.mb-5(data-items='2', data-sm-items='1', data-md-items='2', data-lg-items='2', data-xl-items='4', data-xxl-items='5', data-autoplay='true', data-nav='true', data-dots='true', data-loop='true', data-mouse-drag='false', data-stage-padding='0', data-margin='0', data-nav-text='["prev","next"]')
+            .box-bio
+                .box-bio-year 10/09/2017
+                .box-bio-body
+                    img(src='https://crafatar.com/renders/head/e80bd04d302b4e2f8968e5b53b94c73c')
+                    h5.box-bio-title.mb-0 Rehark
+                    p.box-bio-text.mt-0 Modo
+                    a.btn-sm(href="/Membres/Rehark" style="padding:0;") Voir la candidature
+            .box-bio
+                .box-bio-year 01/01/2017
+                .box-bio-body
+                    img(src='https://crafatar.com/renders/head/c7387598366a4ad0b45a16ff8ad40fbd')
+                    h5.box-bio-title.mb-0 Loffguerier
+                    p.box-bio-text.mt-0 CoFondateur
+                    a.btn-sm(href="/Membres/Loffguerier" style="padding:0;") Voir la candidature
+            .box-bio
+                .box-bio-year 01/01/2017
+                .box-bio-body
+                    img(src='https://crafatar.com/renders/head/3f94e55aa73a4efcad66a5d17c6e5789')
+                    h5.box-bio-title.mb-0 MrSolarius
+                    p.box-bio-text.mt-0 Fondateur
+                    a.btn-sm(href="/Membres/MrSolarius" style="padding:0;") Voir la candidature
+            .box-bio
+                .box-bio-year 10/09/2017
+                .box-bio-body
+                    img(src='https://crafatar.com/renders/head/99be58a87a22424dbd4e4cf691b8cc89')
+                    h5.box-bio-title.mb-0 Mumix_
+                    p.box-bio-text.mt-0 Admin
+                    a.btn-sm(href="/Membres/Mumix_" style="padding:0;") Voir la candidature
+            .box-bio
+                .box-bio-year 10/09/2017
+                .box-bio-body
+                    img(src='https://crafatar.com/renders/head/79ae3b88bf3e481984cef1c08ec70e30')
+                    h5.box-bio-title.mb-0 Mathemathique
+                    p.box-bio-text.mt-0 Admin
+                    a.btn-sm(href="/Membres/Mumix_" style="padding:0;") Voir la candidature
+        .container
+            h4.box-about-post-title.mb-0 Litopien
+            p.mb-5 Tous les membre de litopia sont retrouvable ici avec leurs candidature
+        .owl-carousel.owl-carousel-bio(data-items='1', data-sm-items='1', data-md-items='2', data-lg-items='2', data-xl-items='4', data-xxl-items='5', data-autoplay='true', data-nav='true', data-dots='true', data-loop='true', data-mouse-drag='false', data-stage-padding='0', data-margin='0', data-nav-text='["prev","next"]')
+            each member in members
+                .box-bio
+                    .box-bio-year=member.acceptedate.getUTCDate()+'/'+member.acceptedate.getUTCMonth()+'/'+member.acceptedate.getUTCFullYear()
+                    .box-bio-body
+                        img(src='https://crafatar.com/renders/head/'+member.minecraftuuid)
+                        h5.box-bio-title.mb-0=member.minecraftnickname
+                        p.box-bio-text.mt-0=member.rolename
+                        a.btn-sm(href="/membres/"+member.minecraftnickname style="padding:0;") Voir la candidature

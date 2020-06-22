@@ -28,6 +28,11 @@ router.get('/membres', function(req, res, next) {
   membersController.displayMembers();
 });
 
+router.get('/membres/:nickname', function(req, res, next) {
+  let membersController = new MembersController(req,res);
+  membersController.displayMember();
+});
+
 router.post('/api/check/candidature', function(req,res,next){
   let candidControl = new CandidatureController(req,res);
   candidControl.checker();
