@@ -1,5 +1,6 @@
 var MainController = require('../app/controller/MainController');
 var CandidatureController = require('../app/controller/CandidatureController');
+var MembersController = require('../app/controller/MembersController')
 
 var express = require('express');
 var router = express.Router();
@@ -20,6 +21,11 @@ router.get('/nous-rejoindre/reglement', function(req, res, next) {
 router.get('/nous-rejoindre/:step', function(req,res,next){
   let mainController = new MainController(req,res);
   mainController.steper();
+});
+
+router.get('/membres', function(req, res, next) {
+  let membersController = new MembersController(req,res);
+  membersController.displayMembers();
 });
 
 router.post('/api/check/candidature', function(req,res,next){
