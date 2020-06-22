@@ -1,0 +1,65 @@
+extends ../struct/layout
+
+block content
+    .container
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+        h2.breadcrumbs-custom-title Nos Membres
+        ul.breadcrumbs-custom-path
+            li
+                a(href='/') Acceuil
+            li
+                a(href='/membres') Membres
+            li.active=membre.minecraftnickname
+    section.section.section-lg.bg-default
+        .container
+            .row.row-50.flex-md-row-reverse
+                .col-md-6.text-center(style="z-index: 1;")
+                    .box-image-1
+                        img(src='https://crafatar.com/avatars/'+membre.minecraftuuid+'?size=370', alt='avatar de '+membre.minecraftnickname)
+                    .box-about
+                        if membre.playtime
+                            h4.box-about-post-title-center.mt-5 Statistique en jeux
+                            .row.row-50
+                                .col-md-6
+                                    p
+                                        h6.mb-0 Temps de jeux
+                                        p.mt-0=membre.playtime
+                                    p
+                                        h6.mb-0 Distance Parcourue
+                                        p.mt-0 #{membre.totalparcourdistance}Km
+                                    p
+                                        h6.mb-2 Block les plus minée
+                                        .tabs-custom.tabs-vertical.tabs-video
+                                            .scroll-wrap(style="width:100%;padding-left:0px")
+                                                ul.nav.nav-tabs(style="min-width:100%")
+                                                    -for (var x = 0; x < 100; x++)
+                                                        li.nav-item(role='presentation')
+                                                            .nav-video
+                                                                h6.nav-video-title  #{x} test
+                                .col-md-6
+                                    p
+                                        h6.mb-0 Dernière mort
+                                        p.mt-0 Il y a #{membre.timesincelastdeath}
+                                    p
+                                        h6.mb-0 Nombre de mort
+                                        p.mt-0=membre.numberdeath
+                                    p
+                                        h6.mb-2 Block les plus minée
+                                        .tabs-custom.tabs-vertical.tabs-video
+                                            .scroll-wrap(style="width:100%;padding-left:0px")
+                                                ul.nav.nav-tabs(style="min-width:100%")
+                                                    -for (var x = 0; x < 3; x++)
+                                                        li.nav-item(role='presentation')
+                                                            .nav-video
+                                                                h6.nav-video-title  #{x} test
+
+
+                .col-md-6
+                    .box-about
+                        .box-about-title-wrap
+                            h2.box-about-mega-title=membre.minecraftnickname
+                            h2.box-about-title=membre.minecraftnickname
+                        h4.box-about-post-title Candidature
+                        article(style="text-align:justify")
+                            p!=membre.candidature.replace(/\n/g, "<p>")+"<p/>"
+
