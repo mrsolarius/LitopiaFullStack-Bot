@@ -1,6 +1,51 @@
 extends ./struct/layout
 
 block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+
+  section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+    .container
+      h2.breadcrumbs-custom-title Erreur #{error.status}
+    ul.breadcrumbs-custom-path
+  if error.status == 404
+    section.section.section-lg.bg-default.text-center
+      .container
+        .row.justify-content-lg-center
+          .col-xl-8.col-lg-10
+            .icon.novi-icon.icon-xl.thin-icon-email-search
+            h3 Désolé, mais la page est introuvable
+            p.big
+              | Vous avez peut-être mal saisi l'adresse ou la page a pu être déplacée.
+            .group-xl.group-middle.justify-content-center
+              a.button.button-default-outline(href='./') Retour a la page d'acceuil
+              a.button.button-primary(href='https://discord.gg/AFPw3Zv') Nous contacter
+  else if error.status >= 500
+    section.section.section-lg.bg-default.text-center
+      .container
+        .row.justify-content-lg-center
+          .col-xl-8.col-lg-10
+            .icon.novi-icon.icon-xl.thin-icon-saturn
+            h3 Le service est temporaire Non disponible
+            p.big
+              | Désolé, une erreur interne et aparue. Veuillez revenir plus tard et vérifier que toute et réglés.
+            .group-xl.group-middle.justify-content-center
+              a.button.button-default-outline(href='./') Retour a la page d'acceuil
+              a.button.button-primary(href='https://discord.gg/AFPw3Zv') Nous contacter
+  else
+    section.section.section-lg.bg-default.text-center
+      .container
+        .row.justify-content-lg-center
+          .col-xl-8.col-lg-10
+            .icon.novi-icon.icon-xl.thin-icon-saturn
+            h3 Une erreur inatendu est aparue
+            p.big.mb-5
+              | Désolé, une erreur inatendu et aparue.
+            .group-xl.group-middle.justify-content-center
+              a.button.button-default-outline(href='./') Retour a la page d'acceuil
+              a.button.button-primary(href='https://discord.gg/AFPw3Zv') Nous contacter
+      .container.text-left(style='max-width: 95%;')
+        h3 Rapport d'erreur
+        h5.mb-0 Message
+        pre.big.mb-5.mt-0(style='color:#7397bb')!=message
+        h5.mb-0 Stack Trace
+        pre.big.mb-5.mt-0(style='color:#7397bb')!=error.stack
+

@@ -14,6 +14,7 @@ CREATE TABLE MEMBERS (
     totalMobKill INTEGER,
     totalPlayerKill INTEGER,
     totalParcourDistance NUMERIC(10,3),
+    lastUpdate DATE,
     PRIMARY KEY(idDiscord,minecraftUUID)
 );
 

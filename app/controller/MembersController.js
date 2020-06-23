@@ -12,9 +12,18 @@ class MembersController {
     }
 
     async getMember(member){
-        console.log(member);
         let data = await db.query("SELECT * FROM MEMBERS WHERE minecraftnickname = $1 and rolename is not null;",[member]);
         this.member = data.rows[0];
+    }
+
+    async getMemberItemStats(discordID,minecraftUUID){
+        let data = await db.query("SELECT * FROM itemstat WHERE iddiscord = $1 and minecraftuuid = $2;",[discordID,minecraftUUID]);
+        this.member.ItemStats = data.rows;
+    }
+
+    async getMemberMobStats(discordID,minecraftUUID){
+        let data = await db.query("SELECT * FROM mobstat WHERE iddiscord = $1 and minecraftuuid = $2;",[discordID,minecraftUUID]);
+        this.member.MobsStats = data.rows;
     }
 
     async getStaf(){
@@ -29,10 +38,8 @@ class MembersController {
 
     async displayMember(){
         await this.getMember(this.req.params.nickname);
-        console.log(`test
-        lol
-        li
-        lol`);
+        await Promise.all([this.getMemberItemStats(this.member.iddiscord,this.member.minecraftuuid),this.getMemberMobStats(this.member.iddiscord,this.member.minecraftuuid)]);
+        console.log(this.member);
         this.res.render('./membres/DisplayMember', { title: 'Nos Membres',membre:this.member});
     }
 }

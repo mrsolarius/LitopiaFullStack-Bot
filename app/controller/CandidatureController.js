@@ -65,7 +65,7 @@ class CandidatureController{
             } catch (error) {
                 console.error(error);
                 if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
-                this.errReturn.error.discord.push('Veuillez d\'abors vous connecter à notre discord en <a href="https://discord.gg/Q7CQvE2">cliquand ici</a>');
+                this.errReturn.error.discord.push('Veuillez d\'abors vous connecter à notre discord en <a href="https://discord.gg/AFPw3Zv">cliquand ici</a>');
                 this.errReturn.sucess = false;
             }
         }
