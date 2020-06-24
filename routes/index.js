@@ -1,8 +1,76 @@
 var MainController = require('../app/controller/MainController');
 var CandidatureController = require('../app/controller/CandidatureController');
+var MembersController = require('../app/controller/MembersController')
 
 var express = require('express');
 var router = express.Router();
+
+const expressSitemapXml = require('express-sitemap-xml')
+const db = require('../database/databaseController');
+
+router.use(expressSitemapXml(getUrls, 'http://localhost:3000'))
+
+async function getMembers(){
+  let data = await db.query("SELECT * FROM MEMBERS WHERE rolename is not null;");
+   return data.rows;
+}
+
+async function getUrls () {
+  let route = [
+    {
+      'url':'/',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 1.0
+    },
+    {
+      'url':'/nous-rejoindre',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 0.9
+    },
+    {
+      'url':'/nous-rejoindre/reglement',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 0.8
+    },
+    {
+      'url':'/nous-rejoindre/1',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 0.2
+    },
+    {
+      'url':'/nous-rejoindre/2',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 0.2
+    },
+    {
+      'url':'/nous-rejoindre/3',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 0
+    },
+    {
+      'url':'/membres',
+      'lastmod': '23-06-2020',
+      'changefreq': 'monthly',
+      'priority': 0.5
+    }
+  ]
+  members = await getMembers();
+  for(let i=0 ; i<members.length;i++){
+    route.push({
+      'url':'/membres/'+members[i].minecraftnickname,
+      'lastmod':(members[i].lastupdate?members[i].lastupdate:members[i].acceptedate),
+      'changefreq': 'weekly',
+      'priority': 0
+    })
+  }
+  return route
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -20,6 +88,16 @@ router.get('/nous-rejoindre/reglement', function(req, res, next) {
 router.get('/nous-rejoindre/:step', function(req,res,next){
   let mainController = new MainController(req,res);
   mainController.steper();
+});
+
+router.get('/membres', function(req, res, next) {
+  let membersController = new MembersController(req,res);
+  membersController.displayMembers();
+});
+
+router.get('/membres/:nickname', function(req, res, next) {
+  let membersController = new MembersController(req,res);
+  membersController.displayMember();
 });
 
 router.post('/api/check/candidature', function(req,res,next){

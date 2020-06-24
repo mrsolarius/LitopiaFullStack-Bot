@@ -94,6 +94,7 @@ $('#candidature-message').bind('input propertychange', function() {
         $('#span-message').html('');
         $('#form-message').addClass('has-error');
         $('#span-message').html($('#span-message').html()+'Votre candidature doit faire plus de 4 stacks de caracthère');
+        console.log('erreur');
     }
 });
 

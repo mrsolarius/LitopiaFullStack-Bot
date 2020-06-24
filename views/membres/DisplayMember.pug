@@ -1,0 +1,121 @@
+extends ../struct/layout
+
+block content
+    .container
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+        h2.breadcrumbs-custom-title Nos Membres
+        ul.breadcrumbs-custom-path
+            li
+                a(href='/') Acceuil
+            li
+                a(href='/membres') Membres
+            li.active=membre.minecraftnickname
+    section.section.section-lg.bg-default
+        .container
+            .row.row-50.flex-md-row-reverse
+                .col-md-6.text-center(style="z-index: 1;")
+                    .box-image-1
+                        img(src='https://crafatar.com/avatars/'+membre.minecraftuuid+'?size=370', alt='avatar de '+membre.minecraftnickname)
+                    .box-about
+                        if membre.playtime
+                            h4.box-about-post-title-center.mt-5 Statistique en jeux
+                            .row.row-50
+                                .col-md-6
+                                    p
+                                        h6.mb-0 Temps de jeux
+                                        p.mt-0=membre.playtime
+                                    p
+                                        h6.mb-0 Distance Parcourue
+                                        p.mt-0 #{membre.totalparcourdistance}Km
+                                .col-md-6
+                                    p
+                                        h6.mb-0 Dernière mort
+                                        p.mt-0 Il y a #{membre.timesincelastdeath}
+                                    p
+                                        h6.mb-0 Nombre de mort
+                                        p.mt-0=membre.numberdeath
+                            h5.box-about-post-title-center.mt-2.mb-2 Stat d'item
+                            .row.row-50.mt-0.mb-0
+                                .col-md-6
+                                    h6.mb-2 Block les plus minée
+                                    .tabs-custom.tabs-vertical.tabs-video.m-2
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.ItemStats.sort((a,b) => (a.numbermine < b.numbermine) ? 1 : ((b.numbermine < a.numbermine) ? -1 : 0))
+                                                    if stats.numbermine !==0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats #{stats.numbermine} #{stats.item.split('_').join(' ').toLowerCase()}
+                                .col-md-6
+                                    h6.mb-2 Item les plus utilisée
+                                    .tabs-custom.tabs-vertical.tabs-video
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.ItemStats.sort((a,b) => (a.numberused < b.numberused) ? 1 : ((b.numberused < a.numberused) ? -1 : 0))
+                                                    if stats.numberused !== 0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats #{stats.numberused} #{stats.item.split('_').join(' ').toLowerCase()}
+                            .row.row-50.mt-2.mb-2
+                                .col-md-6
+                                    h6.mb-2 Items les plus casser
+                                    .tabs-custom.tabs-vertical.tabs-video
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.ItemStats.sort((a,b) => (a.numberbroken < b.numberbroken) ? 1 : ((b.numberbroken < a.numberbroken) ? -1 : 0))
+                                                    if stats.numberbroken !== 0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats #{stats.numberbroken} #{stats.item.split('_').join(' ').toLowerCase()}
+                                .col-md-6
+                                    h6.mb-2 Items les plus crafter
+                                    .tabs-custom.tabs-vertical.tabs-video
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.ItemStats.sort((a,b) => (a.numbercraft < b.numbercraft) ? 1 : ((b.numbercraft < a.numbercraft) ? -1 : 0))
+                                                    if stats.numbercraft !== 0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats(style="text-transform: capitalize;") #{stats.numbercraft} #{stats.item.split('_').join(' ').toLowerCase()}
+                            h5.box-about-post-title-center.mt-2.mb-2 Tableau de Chasse
+                            .row.row-50.mt-0.mb-0
+                                .col-md-6
+                                    p
+                                        h6.mb-0 Joueur tuer
+                                        p.mt-0=membre.totalplayerkill
+
+                                    h6.mb-2(style="text-align:left") Mob ayant Tuer le joueur
+                                    .tabs-custom.tabs-vertical.tabs-video
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.MobsStats.sort((a,b) => (a.murder < b.murder) ? 1 : ((b.murder < a.murder) ? -1 : 0))
+                                                    if stats.murder !== 0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats(style="text-transform: capitalize;") #{stats.murder} #{stats.mob.split('_').join(' ').toLowerCase()}
+                                .col-md-6
+                                    p(style="text-align:left")
+                                        h6.mb-0 Mob Tuer
+                                        p.mt-0=membre.totalmobkill
+
+                                    h6.mb-2(style="text-align:left") Mob tuer par le joueur
+                                    .tabs-custom.tabs-vertical.tabs-video
+                                        .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
+                                            ul.nav.nav-tabs(style="min-width:100%")
+                                                each stats in membre.MobsStats.sort((a,b) => (a.killed < b.killed) ? 1 : ((b.killed < a.killed) ? -1 : 0))
+                                                    if stats.killed !== 0
+                                                        li.nav-item(role='presentation',style='margin-top: 0;')
+                                                            .nav-video
+                                                                h6.stats(style="text-transform: capitalize;") #{stats.killed} #{stats.mob.split('_').join(' ').toLowerCase()}
+
+
+
+                .col-md-6
+                    .box-about
+                        .box-about-title-wrap
+                            h2.box-about-mega-title=membre.minecraftnickname
+                            h2.box-about-title=membre.minecraftnickname
+                        h4.box-about-post-title Candidature
+                        article(style="text-align:justify")
+                            p!=membre.candidature.replace(/\n/g, "<p>")+"<p/>"
+
