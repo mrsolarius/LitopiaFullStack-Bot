@@ -1,5 +1,9 @@
 /.vscode
+/node_modules
 token.json
+slnx.sqlite
+VSWorkspaceState.json
+.suo
 slnx.sqlite
 VSWorkspaceState.json
 .suo
