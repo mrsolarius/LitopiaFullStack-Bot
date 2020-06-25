@@ -12,7 +12,7 @@ class CandidatureController{
     }
 
     /**
-     * Fonction permetant de récuper les cles primaire d'un compte minecraft via l'api de mojang
+     * Fonction permettant de récuper les cles primaire d'un compte minecraft via l'api de mojang
      * @param String minecraftNickname
      * @returns apiJSON 
      */
@@ -66,20 +66,20 @@ class CandidatureController{
             } catch (error) {
                 //console.error(error);
                 if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
-                this.errReturn.error.discord.push('Veuillez d\'abors vous connecter à notre discord en <a href="https://discord.gg/AFPw3Zv">cliquand ici</a>');
+                this.errReturn.error.discord.push('Veuillez d\'abords vous connecter à notre discord en <a href="https://discord.gg/AFPw3Zv">cliquant ici</a>');
                 this.errReturn.sucess = false;
             }
         }
 
         if(data.checker =='false'){
             if(typeof this.errReturn.error.checker === 'undefined')this.errReturn.error.checker=[];
-            this.errReturn.error.checker.push('Pour que votre candidature soit traiter vous devez accepter les condition d\'utilisation de ce formulaire');
+            this.errReturn.error.checker.push('Pour que votre candidature soit traité vous devez accepter les conditions d\'utilisation de ce formulaire');
             this.errReturn.sucess = false;
         }
 
         if(data.minecraft.length==0){
             if(typeof this.errReturn.error.minecraft === 'undefined')this.errReturn.error.minecraft=[];
-            this.errReturn.error.minecraft.push('Votre peseudo minecraft est requis.');
+            this.errReturn.error.minecraft.push('Votre pseudo minecraft est requis.');
             this.errReturn.sucess = false;
         }
         
@@ -91,7 +91,7 @@ class CandidatureController{
 
         if(data.discord.length!=18){
             if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
-            this.errReturn.error.discord.push('Votre identifiant discord doit faire 18 caracthère.');
+            this.errReturn.error.discord.push('Votre identifiant discord doit faire 18 caractères.');
             this.errReturn.sucess = false;
         }
 
@@ -109,7 +109,7 @@ class CandidatureController{
 
         if(data.candidature.length<256){
             if(typeof this.errReturn.error.candidature === 'undefined')this.errReturn.error.candidature=[];
-            this.errReturn.error.candidature.push('Votre candidature doit faire plus de 4 stacks de caracthère.');
+            this.errReturn.error.candidature.push('Votre candidature doit faire plus de 4 stacks de caractères.');
             this.errReturn.sucess = false;
         }
         
@@ -138,13 +138,13 @@ class CandidatureController{
 
         if(asyncData[2]){
             if(typeof this.errReturn.error.minecraft === 'undefined')this.errReturn.error.minecraft=[];
-            this.errReturn.error.minecraft.push('Votre pseudo minecraft est déjà utiliser par l\'un de nos membres.');
+            this.errReturn.error.minecraft.push('Votre pseudo minecraft est déjà utilisé par l\'un de nos membres.');
             this.errReturn.sucess = false;
         }
         
         if(asyncData[1]){
             if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
-            this.errReturn.error.discord.push('Ce compte discord et déjà utilisée');
+            this.errReturn.error.discord.push('Ce compte discord et déjà utilisé');
             this.errReturn.sucess = false;
         }        
     }
