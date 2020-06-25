@@ -61,9 +61,10 @@ class CandidatureController{
 
         if(this.req.body.discord.length ==18){
             try {
-                await global.bot.client.users.fetch(this.req.body.discord)
+                console.log(this.req.body.discord)
+                await global.bot.client.guilds.resolve("390427003779809281").members.fetch(this.req.body.discord);
             } catch (error) {
-                console.error(error);
+                //console.error(error);
                 if(typeof this.errReturn.error.discord === 'undefined')this.errReturn.error.discord=[];
                 this.errReturn.error.discord.push('Veuillez d\'abors vous connecter à notre discord en <a href="https://discord.gg/AFPw3Zv">cliquand ici</a>');
                 this.errReturn.sucess = false;
