@@ -58,6 +58,12 @@ async function getUrls () {
       'lastmod': '23-06-2020',
       'changefreq': 'monthly',
       'priority': 0.5
+    },
+    {
+      'url':'/serveur',
+      'lastmod': '23-06-2020',
+      'changefreq': 'yearly',
+      'priority': 1.0
     }
   ]
   members = await getMembers();
@@ -85,18 +91,22 @@ router.get('/nous-rejoindre/reglement', function(req, res, next) {
   res.render('./nous-rejoindre/reglement', { title: 'Rejoindre' });
 });
 
+router.get('/serveur', function(req, res, next) {
+  res.render('./serveur', { title: 'Serveur' });
+});
+
 router.get('/nous-rejoindre/:step', function(req,res,next){
   let mainController = new MainController(req,res);
   mainController.steper();
 });
 
 router.get('/membres', function(req, res, next) {
-  let membersController = new MembersController(req,res);
+  let membersController = new MembersController(req,res,next);
   membersController.displayMembers();
 });
 
 router.get('/membres/:nickname', function(req, res, next) {
-  let membersController = new MembersController(req,res);
+  let membersController = new MembersController(req,res,next);
   membersController.displayMember();
 });
 
