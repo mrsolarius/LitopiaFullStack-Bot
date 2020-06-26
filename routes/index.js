@@ -8,7 +8,7 @@ var router = express.Router();
 const expressSitemapXml = require('express-sitemap-xml')
 const db = require('../database/databaseController');
 
-router.use(expressSitemapXml(getUrls, 'http://localhost:3000'))
+router.use(expressSitemapXml(getUrls, 'https://litopia.fr'))
 
 async function getMembers(){
   let data = await db.query("SELECT * FROM MEMBERS WHERE rolename is not null;");
@@ -96,7 +96,7 @@ router.get('/serveur', function(req, res, next) {
 });
 
 router.get('/nous-rejoindre/:step', function(req,res,next){
-  let mainController = new MainController(req,res);
+  let mainController = new MainController(req,res,next);
   mainController.steper();
 });
 
