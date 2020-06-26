@@ -193,7 +193,7 @@ class CandidatureController{
        
     }
     async composeDiscordMessage(member){
-        var chanToSend = await global.bot.client.channels.fetch('722114238553784400');
+        var chanToSend = await global.bot.client.channels.fetch('390434557515792385');
         var splitingText = split(member.candidature,2048);
         var candidature;
         var firstEmbed = {
