@@ -1,0 +1,31 @@
+extends ./struct/layout
+
+block content
+    .container
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/headerServeur.jpg);')
+        h2.breadcrumbs-custom-title Serveur
+        ul.breadcrumbs-custom-path
+            li
+                a(href='/') Acceuil
+            li.active Serveur
+    section.section.section-lg.bg-default
+        .container
+            .row.row-50.flex-md-row-reverse
+                .col-md-6.text-center
+                    .box-image-1
+                        img(src='images/ServeurBio.jpg', alt='serveur de Litopia', width='468', height='276')
+                .col-md-6
+                    .box-about
+                        .box-about-title-wrap
+                            h2.box-about-mega-title Serveur
+                            h2.box-about-title Le Serveur
+                        h4.box-about-post-title Configuration
+                        p Le serveur de Litopia tourne sur une machine dédiée (voir ci contre) reliée à de la fibre optique le tout sécurisé par un onduleur cela vous permettra d'avoir la meilleur experience de jeu possible
+                        ul.list-marked
+                            li Processeur : Intel(R) Xeon(R) CPU E3-1275 v6 @ 3.80GHz
+                            li RAM : 32Go DDR4 ECC
+                            li SSD : 512Go M2
+                            li HDD : 4 TO (pour le backup et les autres services)
+                        p Le tout fonctionne sur un hyperviseur faisant tourner des machines virtuelles Ubuntu.
+                        br
+                        p Autant vous dire qu'avec ça vous ne subirez jamais aucun lag et le serveur fonctionnera toujours à 20 tps

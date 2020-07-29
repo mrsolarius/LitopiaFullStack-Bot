@@ -18,11 +18,11 @@ block content
                         img(src='https://crafatar.com/avatars/'+membre.minecraftuuid+'?size=370', alt='avatar de '+membre.minecraftnickname)
                     .box-about
                         if membre.playtime
-                            h4.box-about-post-title-center.mt-5 Statistique en jeux
+                            h4.box-about-post-title-center.mt-5 Statistique en jeu
                             .row.row-50
                                 .col-md-6
                                     p
-                                        h6.mb-0 Temps de jeux
+                                        h6.mb-0 Temps de jeu
                                         p.mt-0=membre.playtime
                                     p
                                         h6.mb-0 Nombres de succes obtenue
@@ -35,7 +35,7 @@ block content
                                         h6.mb-0 Dernière mort
                                         p.mt-0 Il y a #{membre.timesincelastdeath}
                                     p
-                                        h6.mb-0 Nombre de mort
+                                        h6.mb-0 Nombre de morts
                                         p.mt-0=membre.numberdeath
                                     p
                                         h6.mb-0 Distance Parcourue en transport
@@ -43,7 +43,7 @@ block content
                             h5.box-about-post-title-center.mt-2.mb-2 Stat d'item
                             .row.row-50.mt-0.mb-0
                                 .col-md-6
-                                    h6.mb-2 Block les plus minée
+                                    h6.mb-2 Blocks les plus minés
                                     .tabs-custom.tabs-vertical.tabs-video.m-2
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")
@@ -53,7 +53,7 @@ block content
                                                             .nav-video
                                                                 h6.stats #{stats.numbermine} #{stats.item.split('_').join(' ').toLowerCase()}
                                 .col-md-6
-                                    h6.mb-2 Item les plus utilisée
+                                    h6.mb-2 Items les plus utilisés
                                     .tabs-custom.tabs-vertical.tabs-video
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")
@@ -64,7 +64,7 @@ block content
                                                                 h6.stats #{stats.numberused} #{stats.item.split('_').join(' ').toLowerCase()}
                             .row.row-50.mt-2.mb-2
                                 .col-md-6
-                                    h6.mb-2 Items les plus casser
+                                    h6.mb-2 Items les plus cassés
                                     .tabs-custom.tabs-vertical.tabs-video
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")
@@ -74,7 +74,7 @@ block content
                                                             .nav-video
                                                                 h6.stats #{stats.numberbroken} #{stats.item.split('_').join(' ').toLowerCase()}
                                 .col-md-6
-                                    h6.mb-2 Items les plus crafter
+                                    h6.mb-2 Items les plus craftés
                                     .tabs-custom.tabs-vertical.tabs-video
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")
@@ -87,10 +87,10 @@ block content
                             .row.row-50.mt-0.mb-0
                                 .col-md-6
                                     p
-                                        h6.mb-0 Joueur tuer
+                                        h6.mb-0 Joueur tué
                                         p.mt-0=membre.totalplayerkill
 
-                                    h6.mb-2(style="text-align:left") Mob ayant Tuer le joueur
+                                    h6.mb-2(style="text-align:left") Mobs ayant tué le joueur
                                     .tabs-custom.tabs-vertical.tabs-video
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")
@@ -101,10 +101,10 @@ block content
                                                                 h6.stats(style="text-transform: capitalize;") #{stats.murder} #{stats.mob.split('_').join(' ').toLowerCase()}
                                 .col-md-6
                                     p(style="text-align:left")
-                                        h6.mb-0 Mob Tuer
+                                        h6.mb-0 Mobs Tués
                                         p.mt-0=membre.totalmobkill
 
-                                    h6.mb-2(style="text-align:left") Mob tuer par le joueur
+                                    h6.mb-2(style="text-align:left") Mobs tués par le joueur
                                     .tabs-custom.tabs-vertical.tabs-video
                                         .scroll-wrap(style="width:100%;padding-left:0px;max-height: 200px;")
                                             ul.nav.nav-tabs(style="min-width:100%")

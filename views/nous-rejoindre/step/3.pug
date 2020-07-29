@@ -1,7 +1,7 @@
 extends ../../struct/layout
 
 block content
-    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(images/bg-breadcrumbs-02-1920x480.jpg);')
+    section.breadcrumbs-custom.bg-image.context-dark(style='background-image: url(/images/candidature.png);')
         .container
             h2.breadcrumbs-custom-title Nous Rejoindre
         ul.breadcrumbs-custom-path
@@ -17,7 +17,7 @@ block content
                     .row
                         .col-lg-7.col-md-8.col-sm-10
                             h3 Ta Candidature (applique toi 😄)
-                            p.text-gray-600 Indiquer les information si dessous
+                            p.text-gray-600 Indiquer les information ci dessous
                     // RD Mailform
                     form.rd-form.rd-mailform.text-left(novalidate='novalidate')
                         .row.row-40
@@ -31,8 +31,8 @@ block content
                                     label.form-label.rd-input-label(for='candidature-discord') ID Discord
                                     input#candidature-discord.form-input.form-control-has-validation.form-control-last-child(type='text', name='name')
                                     span#span-discord.form-validation
-                                p Pour savoirs comment trouver votre identifiant discord 
-                                    a(href='https://support.discord.com/hc/fr/articles/206346498') cliquer ici
+                                p Pour savoir comment trouver votre identifiant discord 
+                                    a(href='https://support.discord.com/hc/fr/articles/206346498') cliquez ici
                             .col-lg-12
                                 #form-message.form-wrap
                                     label.form-label.rd-input-label(for='candidature-message') Candidature
@@ -40,7 +40,7 @@ block content
                                     span#span-message.form-validation
                             .col-lg-12
                                 #form-checkbox.form-wrap
-                                    label.checkbox-inline(for='candidature-checkbox') J'accepte que ma candidature, ainci que mes statistique en jeux, soit publier publiquement sur litopia.fr dans la section
+                                    label.checkbox-inline(for='candidature-checkbox') J'accepte que ma candidature, ainsi que mes statistiques en jeu, soient publiées sur litopia.fr dans la section
                                         a(href='/membres') &nbsp;nos membres.
                                         input#candidature-checkbox.checkbox-custom(type='checkbox', name='checkinfo' value="candidatureEnabled")
                                         span#span-checkbox.form-validation(style='left: 0;')
