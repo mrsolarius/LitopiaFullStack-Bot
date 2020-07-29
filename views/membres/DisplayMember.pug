@@ -25,8 +25,11 @@ block content
                                         h6.mb-0 Temps de jeux
                                         p.mt-0=membre.playtime
                                     p
-                                        h6.mb-0 Distance Parcourue
-                                        p.mt-0 #{membre.totalparcourdistance}Km
+                                        h6.mb-0 Nombres de succes obtenue
+                                        p.mt-0 #{membre.totalAdvancement}
+                                    p
+                                        h6.mb-0 Distance Parcourue à pied
+                                        p.mt-0 #{membre.totalparcourdistance/1000}Km
                                 .col-md-6
                                     p
                                         h6.mb-0 Dernière mort
@@ -34,6 +37,9 @@ block content
                                     p
                                         h6.mb-0 Nombre de mort
                                         p.mt-0=membre.numberdeath
+                                    p
+                                        h6.mb-0 Distance Parcourue en transport
+                                        p.mt-0 #{membre.totalparcourdistancetransportation / 1000}Km
                             h5.box-about-post-title-center.mt-2.mb-2 Stat d'item
                             .row.row-50.mt-0.mb-0
                                 .col-md-6
