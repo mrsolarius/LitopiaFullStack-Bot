@@ -8,15 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: easingthemes/ssh-deploy@v2.2.11
-      with:
-        # Private Key
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
-        # Remote host
-        REMOTE_HOST: ${{ secrets.HOST }}
-        # Remote user
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        # Remote port
-        REMOTE_PORT: ${{ secrets.PORT }}
-        # Target directory
+    - uses: hengkx/ssh-deploy@v1.0.1
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        PORT: ${{ secrets.PORT }}
+        SOURCE: '/'
         TARGET: ${{ secrets.FOLDER_TARGET }}
+        AFTER_COMMAND: 'npm run stop && npm install --production && npm run start'
