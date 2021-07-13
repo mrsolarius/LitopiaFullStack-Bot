@@ -1,4 +1,4 @@
-name: Deploy
+name: Node CI
 
 on: [push]
 
@@ -8,12 +8,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: hengkx/ssh-deploy@v1.0.1
+    - uses: actions/checkout@v1
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - name: Install npm dependencies
+      run: npm install
+    - name: Run build task
+      run: npm run build --if-present
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@v2.2.11
       env:
-        HOST: ${{ secrets.HOST }}
-        USERNAME: ${{ secrets.USERNAME }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        PORT: ${{ secrets.PORT }}
-        SOURCE: '/'
-        TARGET: ${{ secrets.FOLDER_TARGET }}
-        AFTER_COMMAND: 'npm run stop && npm install --production && npm run start'
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-rltgoDzvO --delete"
+          SOURCE: "/"
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: ${{ secrets.USER }}
+          TARGET: ${{ secrets.FOLDER_TARGET }}
+          EXCLUDE: "/dist/, /node_modules/"
