@@ -27,4 +27,16 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.FOLDER_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
-          script: echo test <<test.test
+    - name: ssh pipelines
+      uses: cross-the-world/ssh-pipeline@master
+      env:
+        WELCOME: "ssh pipeline"
+      with:
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USERNAME }}
+        pass: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        connect_timeout: 10s
+        script: |
+          cd ${{ secrets.FOLDER_TARGET }}
+          npm run start
