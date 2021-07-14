@@ -25,5 +25,4 @@ jobs:
           SOURCE: "/"
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.FOLDER_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
