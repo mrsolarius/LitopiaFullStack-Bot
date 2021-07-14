@@ -15,7 +15,7 @@ class MembersController {
     }
 
     async getStaff(){
-        let data = await db.query("SELECT * FROM MEMBERS WHERE not rolename = 'Litopien';");
+        let data = await db.query("SELECT * FROM MEMBERS WHERE rolename not in ('Litopien','Refuser');");
         this.staff = data.rows;
     }
 
