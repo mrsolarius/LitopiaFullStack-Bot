@@ -27,5 +27,4 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.FOLDER_TARGET }}
           EXCLUDE: "/dist/, /node_modules/"
-    - name: Run Server
-      run: echo test >> test
+          script: echo test <<test.test
