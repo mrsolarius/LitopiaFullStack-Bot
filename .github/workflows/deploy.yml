@@ -38,4 +38,6 @@ jobs:
         connect_timeout: 10s
         script: |
           cd ${{ secrets.FOLDER_TARGET }}
-          npm run start
+          npm install pm2 -g
+          pm2 stop ./bin/www
+          pm2 start ./bin/www
